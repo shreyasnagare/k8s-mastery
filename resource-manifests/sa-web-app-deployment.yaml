@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sa-web-app
+  name: sa-webapp
   labels:
-    app: sa-web-app
+    app: sa-webapp
 spec:
   selector:
     matchLabels:
-      app: sa-web-app
+      app: sa-webapp
   replicas: 2
   minReadySeconds: 15
   strategy:
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: sa-web-app
+        app: sa-webapp
     spec:
       containers:
-      - image: rinormaloku/sentiment-analysis-web-app
+      - image: shreyasnagare/sentiment-analysis-webapp
         imagePullPolicy: Always
-        name: sa-web-app
+        name: sa-webapp
         env:
           - name: SA_LOGIC_API_URL
             value: "http://sa-logic"
